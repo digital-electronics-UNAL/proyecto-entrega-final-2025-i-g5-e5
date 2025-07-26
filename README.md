@@ -37,7 +37,38 @@ El sistema se divide en tres módulos principales:
   El total de elementos lógicos usados, así como el total de pines usados se muestra en la siguiente gráfica:
   ![alt text](image.png)
 
-  EL bloque funcional del diseño es el siguiente:
+
+**ÁREA UTILIZADA**
+La FPGA Cyclone IV E – EP4CE10E22C8 tiene un total de 10,320 LEs disponibles.
+Componentes de una LE (Logic Element)
+LUT de 4 entradas
+Se puede implementar como una memoria SRAM de 16 bits (2⁴ combinaciones).
+Cada bit SRAM requiere ~6 transistores (estilo celdas 6T).
+Total: 16 × 6 = 96 transistores
+Multiplexores de selección (para elegir la salida)
+Implementados con lógica CMOS (2–4 transistores por entrada).
+Se usan varios para rutear entrada/salida de la LUT y flip-flop.
+Estimado: ~40–60 transistores
+Flip-Flop tipo D
+Generalmente entre 20 y 30 transistores.
+Estimado: ~24 transistores
+Lógica de control adicional (enable, reset, clock)
+Circuitería de control del FF y la LE.
+Estimado: ~20–30 transistores
+Una Logic Element (LE) en una FPGA Cyclone IV E contiene una LUT de 4 entradas, un flip-flop tipo D, y varios multiplexores. 
+
+TOTAL	180–210 transistores por LE
+
+La FPGA EP4CE10E22C8, con sus 10,320 LEs totales, tiene entre 1.8 y 2.2 millones de transistores solo en LEs, y más de 10 millones de transistores totales incluyendo todos los demás bloques.
+Cada Logic Element (LE) se estima que contiene aproximadamente:
+
+~180 a 210 transistores por LE
+
+Utilizamos 430 Les De un total de 10,320 LEs disponibles en la FPGA Cyclone IV E – EP4CE10E22C8, Lo que corresponde al 4% de utilización, entonces:
+430*(180 a 210 )= 77.400 a 90.300 Transistores  aproximadamente.
+
+
+El bloque funcional del diseño es el siguiente:
 
   ![alt text](image-1.png)
 
